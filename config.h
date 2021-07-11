@@ -8,15 +8,15 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const unsigned int gappx     = 5;
 static const char *fonts[]          = { "monospace:size=10" };
 static const char dmenufont[]       = "monospace:size=10";
-static const char col_gray1[]       = "#222222";
-static const char col_gray2[]       = "#444444";
-static const char col_gray3[]       = "#bbbbbb";
-static const char col_gray4[]       = "#eeeeee";
-static const char col_cyan[]        = "#005577";
+static const char col_gray1[]       = "#222222"; //cor de toda a barra
+static const char col_gray2[]       = "#444444"; //cor da borda da janela secundária
+static const char col_gray3[]       = "#bbbbbb"; // cor dos itens (textos) "secundários" da barra
+static const char col_gray4[]       = "#eeeeee"; //cor do texto dos itens selecionados na barra
+static const char col_cyan[]        = "#005577"; //cor da barra selecionada
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+	[SchemeNorm] = { col_gray3, col_gray1, col_gray1 },
+	[SchemeSel]  = { col_gray4, col_gray1,  col_cyan  },
 };
 
 /* tagging */
@@ -94,9 +94,10 @@ static Key keys[] = {
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
 	/*applications*/
+	{ MODKEY,             		XK_o,      spawn,     	   SHCMD("~/Obsidian.AppImage") },
 	{ MODKEY,             		XK_e,      spawn,     	   SHCMD("emacs") },
 	{ MODKEY,             		XK_w,      spawn,     	   SHCMD("firefox") },
-	{ MODKEY|ShiftMask,             XK_e,       spawn,     	   SHCMD("pcmanfm-qt") } ,
+	{ MODKEY|ShiftMask,             XK_e,       spawn,     	   SHCMD("pcmanfm") } ,
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
